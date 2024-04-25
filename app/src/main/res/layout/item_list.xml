@@ -18,16 +18,16 @@
 
     <TextView
         android:id="@+id/item_nombre"
-        android:layout_width="198dp"
+        android:layout_width="169dp"
         android:layout_height="63dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="12dp"
         android:text="Nombre"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/item_imagen"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <ImageView
         android:id="@+id/item_continente"
@@ -39,6 +39,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/item_nombre"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777"
+        app:layout_constraintVertical_bias="0.4"
         tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

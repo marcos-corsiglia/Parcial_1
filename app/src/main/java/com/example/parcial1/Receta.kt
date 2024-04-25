@@ -4,7 +4,7 @@ data class Receta(
     val id: Int,
     val nombre: String,
     val imagen: String,
-    val ingredientes: Array<String>,
+    val ingredientes: String,
     val modoDePreparacion: String,
     val continente: Continente
 )

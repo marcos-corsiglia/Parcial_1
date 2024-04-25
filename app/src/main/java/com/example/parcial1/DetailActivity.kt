@@ -1,18 +1,17 @@
 package com.example.parcial1
 
 import android.os.Bundle
-import android.os.PersistableBundle
+import android.text.method.ScrollingMovementMethod
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+
 
 class DetailActivity : AppCompatActivity() {
     lateinit var txtNombre: TextView
     lateinit var imgImagen: ImageView
-    lateinit var rvIngredientes: RecyclerView
-    lateinit var imgContinente: ImageView
+    lateinit var txtIngredientes: TextView
     lateinit var txtPreparacion: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,22 +23,20 @@ class DetailActivity : AppCompatActivity() {
         val nombre = bundle?.getString("nombre")
         val imagen = bundle?.getString("imagen")
         val ingredientes = bundle?.getString("ingredientes")
-        val continente = bundle?.getString("continente")
         val preparacion = bundle?.getString("preparacion")
 
         txtNombre = findViewById(R.id.dtl_Nombre)
         imgImagen = findViewById(R.id.dtl_imagen)
-        rvIngredientes = findViewById(R.id.dtl_rvIngredientes)
-        imgContinente = findViewById(R.id.dtl_continente)
+        txtIngredientes = findViewById(R.id.dtl_ingredientes)
         txtPreparacion = findViewById(R.id.dtl_preparacion)
 
         txtNombre.text = nombre
+        txtIngredientes.text = ingredientes
         txtPreparacion.text = preparacion
 
         Glide.with(applicationContext).load(imagen).into(imgImagen)
 
-        // ??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
-        val continenteImageResourceId = resources.getIdentifier(continente, "drawable", packageName)
-        imgContinente.setImageResource(continenteImageResourceId)
+        txtIngredientes.setMovementMethod(ScrollingMovementMethod())
+        txtPreparacion.setMovementMethod(ScrollingMovementMethod())
     }
 }

@@ -11,14 +11,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class AdapterMain(val context: Context) : ListAdapter<Receta, AdapterMain.ViewHolder>(DiffCallBack) {
+class Adapter(val context: Context) : ListAdapter<Receta, Adapter.ViewHolder>(DiffCallBack) {
     lateinit var onItemClickListener: (Receta) -> Unit
 
     inner class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val imagenElem: ImageView = view.findViewById(R.id.item_imagen)
         val nombreElem: TextView = view.findViewById(R.id.item_nombre)
         val continenteElem: ImageView = view.findViewById(R.id.item_continente)
-        // Debere poner todos los atributos de Receta ??? /////////////////////////////////////////////////////////////////////////////////////////
 
         fun bind (receta: Receta) {
             nombreElem.text = receta.nombre
@@ -41,14 +40,14 @@ class AdapterMain(val context: Context) : ListAdapter<Receta, AdapterMain.ViewHo
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterMain.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.item_list, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: AdapterMain.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Adapter.ViewHolder, position: Int) {
         val receta = getItem(position)
         holder.bind(receta)
     }
